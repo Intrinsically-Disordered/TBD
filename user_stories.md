@@ -16,11 +16,15 @@ single typed sequence or a button for uploading fasta files
 User: Inputs protein sequence into a box or clicks on a button and uploads protein sequence file 
 from computer
 
-ML: For each valid input sequence, displays the original sequence with certain regions of the 
+ML: For each valid input sequence, it first tests to make sure the input sequence is valid.
+    If a protein sequence is invalid, displays the input sequence and a message reading "Invalid
+    protein sequence." If a protein sequence is valid, the interface displays the original sequence with certain regions of the 
     protein labeled underneath as intrinsically disordered along with an overall percentage of 
     how much of the sequence is intrinsically disordered.
-    If a protein sequence is invalid, displays the input sequence and a message reading "Invalid 
-    protein sequence."
+
+### Functional diagram:
+![alt text](https://github.com/Intrinsically-Disordered/main-project/tree/draft_stories_rp?raw=True)
+
 
 ## Technician user story
 Patrick is a computer science postdoc with graduate-level experience in machine learning. He is 
