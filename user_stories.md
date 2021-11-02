@@ -19,7 +19,6 @@ from computer
 ML: For each valid input sequence, displays the original sequence with certain regions of the 
     protein labeled underneath as intrinsically disordered along with an overall percentage of 
     how much of the sequence is intrinsically disordered.
-
     If a protein sequence is invalid, displays the input sequence and a message reading "Invalid 
     protein sequence."
 
