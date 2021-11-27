@@ -1,13 +1,10 @@
 """
 Model to classifiy protein sequence as ordered or disordered.
 """
-import pdb
 import numpy as np
-import pandas as pd
 import pickle
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 
 def load_data(infile):
@@ -63,7 +60,7 @@ def combine_ordered_disordered(array_ordered, labels_ordered,
     Returns:
         np.ndarray: [description]
     """
-    ## For dev only
+    # For dev only
     array_ordered = array_ordered[:array_disordered.shape[0]]
     labels_ordered = labels_ordered[:array_disordered.shape[0]]
     ###
@@ -83,12 +80,14 @@ def fit_model(X_train, X_test, y_train, y_test):
 
     Returns:
         model: Fitted CNN model
-    """    
+    """
     model = tf.keras.Sequential()
     model.add(tf.keras.Input(shape=(40, 20, 1)))
-    model.add(tf.keras.layers.Conv2D(16, 2, strides=2, activation='relu'))
+    model.add(tf.keras.layers.Conv2D(16, 2, strides=1, activation='relu'))
     model.add(tf.keras.layers.MaxPooling2D(2, strides=2))
-    model.add(tf.keras.layers.Conv2D(8, 2, strides=2, activation='relu'))
+    model.add(tf.keras.layers.Conv2D(8, 2, strides=1, activation='relu'))
+    model.add(tf.keras.layers.MaxPooling2D(2, strides=2))
+    model.add(tf.keras.layers.Conv2D(4, 2, strides=1, activation='relu'))
     model.add(tf.keras.layers.MaxPooling2D(2, strides=2))
     model.add(tf.keras.layers.Flatten())
     model.add(tf.keras.layers.Dense(16, activation='relu'))
@@ -104,7 +103,7 @@ def fit_model(X_train, X_test, y_train, y_test):
 
 def main():
     """Main.
-    """    
+    """
     infile = "../data/protein_processed_data.pkl"
     array_ordered, labels_ordered, array_disordered, labels_disordered = \
         load_data(infile)
