@@ -95,7 +95,7 @@ def fit_model(X_train, X_test, y_train, y_test):
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
                   loss=tf.keras.losses.CategoricalCrossentropy(),
                   metrics=[tf.keras.metrics.CategoricalAccuracy(), tf.keras.metrics.AUC()])
-    model.fit(X_train, y_train, steps_per_epoch=len(X_train)//9, epochs=8,
+    model.fit(X_train, y_train, steps_per_epoch=len(X_train)//9, epochs=15,
               validation_data=(X_test, y_test), validation_steps=int(len(X_test)/5))
     print(model.summary())
     return model
