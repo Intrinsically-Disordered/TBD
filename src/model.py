@@ -61,8 +61,8 @@ def combine_ordered_disordered(array_ordered, labels_ordered,
         np.ndarray: [description]
     """
     # For dev only
-    array_ordered = array_ordered[:array_disordered.shape[0]]
-    labels_ordered = labels_ordered[:array_disordered.shape[0]]
+    # array_ordered = array_ordered[:array_disordered.shape[0]]
+    # labels_ordered = labels_ordered[:array_disordered.shape[0]]
     ###
     features = np.vstack([array_ordered, array_disordered])
     labels = np.hstack([labels_ordered, labels_disordered])
@@ -95,7 +95,7 @@ def fit_model(X_train, X_test, y_train, y_test):
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
                   loss=tf.keras.losses.CategoricalCrossentropy(),
                   metrics=[tf.keras.metrics.CategoricalAccuracy(), tf.keras.metrics.AUC()])
-    model.fit(X_train, y_train, steps_per_epoch=len(X_train)//4, epochs=8,
+    model.fit(X_train, y_train, steps_per_epoch=len(X_train)//9, epochs=8,
               validation_data=(X_test, y_test), validation_steps=int(len(X_test)/5))
     print(model.summary())
     return model
@@ -108,7 +108,7 @@ def main():
     array_ordered, labels_ordered, array_disordered, labels_disordered = \
         load_data(infile)
     array_disordered_augmented, labels_disordered_augmented = \
-        augment_data(array_disordered, labels_disordered, num_times=1)
+        augment_data(array_disordered, labels_disordered, num_times=6)
     features, labels = combine_ordered_disordered(
         array_ordered, labels_ordered, array_disordered_augmented, labels_disordered_augmented
     )
