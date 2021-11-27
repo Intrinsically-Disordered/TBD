@@ -1,8 +1,8 @@
 """Process the protein sequence into specified data format for modeling.
 """
-import pandas as pd
-import numpy as np
 import pickle
+import numpy as np
+import pandas as pd
 
 
 UNIQUE_LETTERS = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
@@ -35,7 +35,7 @@ def clean_disordered_sequence(infile_disordered):
     """Clean the disordered protein sequence.
 
     Args:
-        infile_disordered ([str]): filename or path to the disordered protein 
+        infile_disordered ([str]): filename or path to the disordered protein
             sequence in csv format.
 
     Returns:
@@ -75,7 +75,7 @@ def generate_sub_sequence(df, size=40, strides=10):
     Args:
         df (dataframe): [description]
         size (int, optional): specified protein length limit. Defaults to 40.
-        strides (int, optional): length of strides with which to extract the sequence. 
+        strides (int, optional): length of strides with which to extract the sequence.
             Defaults to 10.
 
     Returns:
@@ -90,21 +90,21 @@ def generate_sub_sequence(df, size=40, strides=10):
 
 
 def one_hot_encoding(df, protein_type, size=40, strides=10):
-    """One-hot encoding the sequences. protein_type should be 
+    """One-hot encoding the sequences. protein_type should be
        one of ['ordered', 'disordered']
 
     Args:
         df (dataframe): [description]
         protein_type (str): one of ['ordered', 'disordered']
         size (int, optional): specified protein length limit.. Defaults to 40.
-        strides (int, optional): length of strides with which to extract the sequence. 
+        strides (int, optional): length of strides with which to extract the sequence.
             Defaults to 10.
 
     Raises:
         Exception: raise exception if the protein_type is not correct.
 
     Returns:
-        numpy.ndarray: three-dimensional array of one-hot-encoding for features 
+        numpy.ndarray: three-dimensional array of one-hot-encoding for features
             (num_obs, size, len(UNIQUE_LETTERS))
         numpy.ndarray: one-dimensional array of labels
     """
@@ -128,13 +128,13 @@ def save_processed_data(array_ordered, labels_ordered, array_disordered, labels_
     """Save the processed data in a pickle format.
 
     Args:
-        array_ordered (np.ndarray): three-dimensional array of features 
+        array_ordered (np.ndarray): three-dimensional array of features
             for ordered protein sequence
-        labels_ordered (np.ndarray): one-dimensional array of labels 
+        labels_ordered (np.ndarray): one-dimensional array of labels
             for ordered protein sequence
-        array_disordered (np.ndarray): three-dimensional array of features 
+        array_disordered (np.ndarray): three-dimensional array of features
             for disordered protein sequence
-        labels_disordered (np.ndarray): one-dimensional array of labels 
+        labels_disordered (np.ndarray): one-dimensional array of labels
             for disordered protein sequence
     """
     with open("../data/array_ordered.pkl", "wb") as f_write:
