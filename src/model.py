@@ -6,15 +6,18 @@ import pickle
 from sklearn.model_selection import train_test_split
 import tensorflow as tf
 
+HEIGHT = 40
+WIDTH = 20
 
-def load_data(infile):
-    """Load data array.
+
+def read_data(infile):
+    """Read data array.
 
     Args:
         infile (str): path to file
 
     Returns:
-        pickle: loaded pickle object for data.
+        np.ndarray: numpy arrays for features and labels
     """
     with open(infile, 'rb') as f_read:
         obj = pickle.load(f_read)
@@ -23,6 +26,31 @@ def load_data(infile):
     array_disordered = obj["array_disordered"]
     labels_disordered = obj["labels_disordered"]
     return array_ordered, labels_ordered, array_disordered, labels_disordered
+
+
+def load_data(infile):
+    """Prepare data for model fitting. Disordered data are augmented. 
+       Ordered and disordered data are combined. Data are split into training and testing.
+
+    Args:
+        infile (str): path to file
+
+    Returns:
+        np.ndarray: features and labels for training and testing.
+    """
+    array_ordered, labels_ordered, array_disordered, labels_disordered = \
+        read_data(infile)
+    array_disordered_augmented, labels_disordered_augmented = \
+        augment_data(array_disordered, labels_disordered, num_times=6)
+    features, labels = combine_ordered_disordered(
+        array_ordered, labels_ordered, array_disordered_augmented, labels_disordered_augmented
+    )
+    features = features.reshape((len(features), HEIGHT, WIDTH, 1))
+    labels = tf.keras.utils.to_categorical(labels)
+    X_train, X_test, y_train, y_test = train_test_split(
+        features, labels, test_size=0.2, random_state=110
+    )
+    return X_train, X_test, y_train, y_test
 
 
 def augment_data(features, labels, num_times=6):
@@ -105,19 +133,9 @@ def main():
     """Main.
     """
     infile = "../data/protein_processed_data.pkl"
-    array_ordered, labels_ordered, array_disordered, labels_disordered = \
-        load_data(infile)
-    array_disordered_augmented, labels_disordered_augmented = \
-        augment_data(array_disordered, labels_disordered, num_times=6)
-    features, labels = combine_ordered_disordered(
-        array_ordered, labels_ordered, array_disordered_augmented, labels_disordered_augmented
-    )
-    features = features.reshape((len(features), 40, 20, 1))
-    labels = tf.keras.utils.to_categorical(labels)
-    X_train, X_test, y_train, y_test = train_test_split(
-        features, labels, test_size=0.2, random_state=110
-    )
+    X_train, X_test, y_train, y_test = load_data(infile)
     model = fit_model(X_train, X_test, y_train, y_test)
+    model.save('fitted_model')
 
 
 if __name__ == "__main__":
