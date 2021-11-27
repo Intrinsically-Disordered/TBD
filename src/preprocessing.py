@@ -137,17 +137,14 @@ def save_processed_data(array_ordered, labels_ordered, array_disordered, labels_
         labels_disordered (np.ndarray): one-dimensional array of labels
             for disordered protein sequence
     """
-    with open("../data/array_ordered.pkl", "wb") as f_write:
-        pickle.dump(array_ordered, f_write)
-
-    with open("../data/labels_ordered.pkl", "wb") as f_write:
-        pickle.dump(labels_ordered, f_write)
-
-    with open("../data/array_disordered.pkl", "wb") as f_write:
-        pickle.dump(array_disordered, f_write)
-
-    with open("../data/labels_disordered.pkl", "wb") as f_write:
-        pickle.dump(labels_disordered, f_write)
+    dict_data = {
+        "array_ordered": array_ordered,
+        "labels_ordered": labels_ordered,
+        "array_disordered": array_disordered,
+        "labels_disordered": labels_disordered
+    }
+    with open("../data/protein_processed_data.pkl", "wb") as f_write:
+        pickle.dump(dict_data, f_write)
 
 
 def main():
