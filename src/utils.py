@@ -1,14 +1,23 @@
+"""Utility functions."""
 from collections import defaultdict
 import numpy as np
 import pandas as pd
+import tensorflow as tf
 
 
+# Unique letters of protein sequences.
 UNIQUE_LETTERS = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L',
                   'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']
 UNIQUE_LETTERS = np.array(UNIQUE_LETTERS)
 
 
 def check_length(lst, length_limit):
+    """Check the length of the input protein sequence.
+
+    Args:
+        lst (list): protein sequences in a list
+        length_limit (int): specified protein length limit.
+    """    
     for seq in lst:
         if len(seq) < length_limit:
             print(f"The sequence {seq} is less than "
@@ -18,6 +27,11 @@ def check_length(lst, length_limit):
 
 
 def check_protein_letters(lst):
+    """Check the letters of protein sequence.
+
+    Args:
+        lst (list): protein sequences in a list
+    """    
     for seq in lst:
         for letter in seq:
             if letter not in UNIQUE_LETTERS:
@@ -27,6 +41,15 @@ def check_protein_letters(lst):
 
 
 def check_data(data, length_limit):
+    """Check the input data.
+
+    Args:
+        data (list of pd.DataFrame): input data as a list or dataframe
+        length_limit (int): specified protein length limit.
+
+    Raises:
+        TypeError: raise an exception if the input data don't have the right type.
+    """    
     if isinstance(data, list):
         pass
     elif isinstance(data, pd.DataFrame):
@@ -57,7 +80,16 @@ def generate_sub_sequence(df, size=40, strides=10):
     return lst
 
 
-def one_hot_encoding(lst_sequences, size):
+def one_hot_encoding(lst_sequences, length_limit):
+    """One-hot encoding the sequences.
+
+    Args:
+        lst_sequences (list): a list of sub_sequences with length of `length_limit`
+        length_limit (int): specified protein length limit. Defaults to 40.
+
+    Returns:
+        np.ndarrary: the array after one-hot encoding.
+    """    
     num_obs = len(lst_sequences)
     # placeholder
     array_encoded = np.empty((num_obs, size, len(UNIQUE_LETTERS)))
@@ -73,8 +105,8 @@ def encode_data(df, protein_type=None, size=40, strides=10):
 
     Args:
         df (dataframe): [description]
-        protein_type (str, optional): one of ['ordered', 'disordered']
-        size (int, optional): specified protein length limit.. Defaults to 40.
+        protein_type (str, optional): one of ['ordered', 'disordered', None]
+        size (int, optional): specified protein length limit. Defaults to 40.
         strides (int, optional): length of strides with which to extract the sequence.
             Defaults to 10.
 
@@ -96,3 +128,16 @@ def encode_data(df, protein_type=None, size=40, strides=10):
     else:
         labels = None
     return array_encoded, labels
+
+
+def load_model(infile="fitted_model"):
+    """Load fitted model.
+
+    Args:
+        infile (str, optional): path to saved model. Defaults to "fitted_model".
+
+    Returns:
+        model: fitted model.
+    """
+    model = tf.keras.models.load_model(infile)
+    return model
