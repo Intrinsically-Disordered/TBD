@@ -1,13 +1,9 @@
-import pytest
-import numpy as np
-import pandas as pd
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from model import load_data
 from utils import load_model
 from evaluate import evaluate_model
-
 
 
 def test_evaluate_model():
