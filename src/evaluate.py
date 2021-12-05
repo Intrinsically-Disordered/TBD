@@ -1,18 +1,6 @@
-import tensorflow as tf
+"""Evaluate the performance of the trained model."""
 from model import load_data
-
-
-def load_model(infile="fitted_model"):
-    """Load fitted model.
-
-    Args:
-        infile (str, optional): path to saved model. Defaults to "fitted_model".
-
-    Returns:
-        model: fitted model.
-    """
-    model = tf.keras.models.load_model(infile)
-    return model
+from utils import load_model
 
 
 def evaluate_model(model, test_images, test_labels):
