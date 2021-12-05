@@ -1,6 +1,5 @@
 """Process the protein sequence into specified data format for modeling.
 """
-
 import pickle
 import numpy as np
 import pandas as pd
