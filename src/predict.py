@@ -1,7 +1,8 @@
+"""Functions related to the model prediction."""
 from collections import defaultdict
 import pandas as pd
 from preprocessing import set_length_limit
-from utils import generate_sub_sequence, encode_data
+from utils import generate_sub_sequence, encode_data, load_model
 
 
 def features_as_df(df):
@@ -37,6 +38,23 @@ def features_as_df(df):
 
 
 def transform_data(data, verbose=False):
+    """Transform the input data to be used by prediction.
+
+    Args:
+        data (list or dataframe): Input data in a list or 
+            dataframe with column name `sequence`.
+        verbose (bool, optional): Whether to print out statistics 
+            of input protein sequence. Defaults to False.
+
+    Raises:
+        TypeError: Exception wil be raised in the input data 
+            don't have the right type.
+
+    Returns:
+        np.ndarray: Transformed features of the input data in an array
+        pd.DataFrame: Dataframe that contain both the parent sequence
+            and the sub-sequences.
+    """
     if isinstance(data, list):
         df = pd.DataFrame(data, columns=['sequence'])
     elif isinstance(data, pd.DataFrame):
@@ -49,3 +67,20 @@ def transform_data(data, verbose=False):
     shapes = features.shape
     arrary_features = features.reshape((shapes[0], shapes[1], shapes[2], 1))
     return arrary_features, df_features
+
+
+def predict_protein(data):
+    """Predict the protein sequence.
+
+    Args:
+        data (np.ndarray): input data in an array after one-hot-encoding
+
+    Returns:
+        pd.DataFrame: the prediction results for each sub-sequences.
+    """    
+    model = load_model()
+    features, df_features = transform_data(data)
+    predictions = model.predict(features)
+    df_pred = pd.DataFrame(predictions, columns=['prob_disordered', 'prob_ordered'])
+    df_pred = df_features.join(df_pred)
+    return df_pred
