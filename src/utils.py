@@ -17,7 +17,7 @@ def check_length(lst, length_limit):
     Args:
         lst (list): protein sequences in a list
         length_limit (int): specified protein length limit.
-    """    
+    """
     for seq in lst:
         if len(seq) < length_limit:
             print(f"The sequence {seq} is less than "
@@ -31,11 +31,12 @@ def check_protein_letters(lst):
 
     Args:
         lst (list): protein sequences in a list
-    """    
+    """
     for seq in lst:
         for letter in seq:
             if letter not in UNIQUE_LETTERS:
-                print(f"The sequence {seq} contains invalid letters.")
+                raise TypeError(
+                    f"The sequence {seq} contains invalid letters.")
             else:
                 continue
 
@@ -49,15 +50,15 @@ def check_data(data, length_limit):
 
     Raises:
         TypeError: raise an exception if the input data don't have the right type.
-    """    
+    """
     if isinstance(data, list):
         pass
     elif isinstance(data, pd.DataFrame):
         lst = list(data.sequence.values)
     else:
         raise TypeError(f"Invalid data type!")
-    check_length(lst, length_limit)
-    check_protein_letters(lst)
+    check_length(data, length_limit)
+    check_protein_letters(data)
 
 
 def generate_sub_sequence(df, size=40, strides=10):
@@ -89,10 +90,10 @@ def one_hot_encoding(lst_sequences, length_limit):
 
     Returns:
         np.ndarrary: the array after one-hot encoding.
-    """    
+    """
     num_obs = len(lst_sequences)
     # placeholder
-    array_encoded = np.empty((num_obs, size, len(UNIQUE_LETTERS)))
+    array_encoded = np.empty((num_obs, length_limit, len(UNIQUE_LETTERS)))
     for ix, sequence in enumerate(lst_sequences):
         for iy, letter in enumerate(sequence):
             array_encoded[ix, iy, ] = (UNIQUE_LETTERS == letter).astype(int)
@@ -104,7 +105,7 @@ def encode_data(df, protein_type=None, size=40, strides=10):
        one of ['ordered', 'disordered']
 
     Args:
-        df (dataframe): [description]
+        df (dataframe): input data in a dataframe
         protein_type (str, optional): one of ['ordered', 'disordered', None]
         size (int, optional): specified protein length limit. Defaults to 40.
         strides (int, optional): length of strides with which to extract the sequence.
