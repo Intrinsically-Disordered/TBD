@@ -31,7 +31,7 @@ The final step is to generate a pull request. The instructions for opening a pul
 
 
 ## Things to note
-To achieve the purpose of continous integration, <code>hardy</code> utilizes <code>travis CI</code>. travis CI is configured to perform PEP8 compliance test (flake8) along with running unittests. Any failure in compliance would result in build error or build failure on travis CI.
+To achieve the purpose of continous integration, <code>TBD</code> utilizes <code>travis CI</code>. travis CI is configured to perform PEP8 compliance test (flake8) along with running unittests. Any failure in compliance would result in build error or build failure on travis CI.
 
 To run these test on your local machine, following code snippets can be used in your terminal/command prompt:
 
