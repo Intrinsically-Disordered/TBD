@@ -53,6 +53,6 @@ While many proteins fold into regular conformations which can be easily analyzed
  If you would like to report a bug, please follow <a href="https://github.com/Intrinsically-Disordered/TBD/issues/new">this link</a>.
  
  ### Contributions:
- If you would to contribute to TBD, you can fork the repository, add your contribution and generate a pull request. The complete guide to make contributions can be found at this <a href="https://github.com/EISy-as-Py/hardy/blob/master/CONTRIBUTIONS.md">link</a>
+ If you would to contribute to TBD, you can fork the repository, add your contribution and generate a pull request. The complete guide to make contributions can be found at this <a href="https://github.com/Intrinsically-Disordered/TBD/blob/main/CONTRIBUTIONS.md">link</a>
 
 ------------------------
