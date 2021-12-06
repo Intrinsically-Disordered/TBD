@@ -2,15 +2,15 @@
 
 -------------------------
 
-The project TBD [Tau Be Damned] aims to use the amino acide sequence of a protein to identify whether it is disordered.
+The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
 
 ## Project Objective
 
 -------------------------
 
-Our goal is to build a tool to identigy whether a protein is disordered bases on its amino acid sequence. We have collected amino acid
+Our goal is to build a tool to identify whether a protein is disordered based on its amino acid sequence. We have collected amino acid
 sequences for ordered and disordered proteins from publicly available datasets to train a machine learning model to perform the
-identificaction task.
+classification task.
 
 ## Mission
 
