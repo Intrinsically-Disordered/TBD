@@ -53,6 +53,8 @@ The package TBD can be installed with the following steps:
 
 ------------------------
 
+An example to run the whole pipeline of data processing, modeling and prediction using a single script can be found here: [run_tbd.py](src/run_tbd.py)
+
 ## Use Cases
 
 ------------------------
@@ -74,6 +76,8 @@ This project aims to be of use to the general public with interest in learning a
 
 ## Community Guidelines
 
+--------------------
+
  We welcome the members of open-source community to extend the functionalities of TBD, submit feature requests and report bugs.
  
  ### Feature Request:
@@ -84,5 +88,3 @@ This project aims to be of use to the general public with interest in learning a
  
  ### Contributions:
  If you would to contribute to TBD, you can fork the repository, add your contribution and generate a pull request. The complete guide to make contributions can be found at this <a href="https://github.com/Intrinsically-Disordered/TBD/blob/main/CONTRIBUTIONS.md">link</a>
-
---------------------
