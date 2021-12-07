@@ -137,16 +137,3 @@ def fit_model(X_train, X_test, y_train, y_test):
               validation_steps=int(len(X_test)/5))
     print(model.summary())
     return model
-
-
-# def main():
-#     """Main.
-#     """
-#     infile = "../data/protein_processed_data.pkl"
-#     X_train, X_test, y_train, y_test = load_data(infile)
-#     model = fit_model(X_train, X_test, y_train, y_test)
-#     model.save('fitted_model')
-
-
-# if __name__ == "__main__":
-#     main()
