@@ -3,15 +3,19 @@ import numpy as np
 import pandas as pd
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from predict import features_as_df, transform_data, predict_protein
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),
+                '..')))
+from predict import features_as_df,\
+    transform_data,\
+    predict_protein  # noqa: E402
 
 
 @pytest.fixture(name="input_data")
 def example_data():
     sequences = [
         "LLGDFFRKSKEKIGKEFKRIVQRIKDFLRNLVPRTES",
-        "MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPILSLNRKPKSRVESALNPIDLTVLAEYHKQIESNLQRIERKNQTWYS",
+        "MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPIL"
+        "SLNRKPKSRVESALNPIDLTVLAEYHKQIESNLQRIERKNQTWYS",
         "MDAQTRRRERRAEKQAQWKAAN"]
     return sequences
 

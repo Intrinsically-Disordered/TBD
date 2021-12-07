@@ -1,23 +1,23 @@
 """Functions related to the model prediction."""
-from collections import defaultdict
 import pandas as pd
 from preprocessing import set_length_limit
 from utils import generate_sub_sequence, encode_data, load_model
 
 
 def features_as_df(df):
-    """Put original sequence and sub-sequence in a dataframe, 
+    """Put original sequence and sub-sequence in a dataframe,
        with one column as original sequence and another column as
        subsequence.
 
     Args:
-        df (pd.dataframe): Dataframe with one column of inputted protein sequences.
+        df (pd.dataframe): Dataframe with one column of
+            inputted protein sequences.
 
     Raises:
-        Exception: If all inputted sequences are shorter than specified length limit
-                   then raise exception.
+        Exception: If all inputted sequences are shorter than
+            specified length limit then raise exception.
     Returns:
-        df: dataframe with two columns, one column is the original sequence 
+        df: dataframe with two columns, one column is the original sequence
             and another column is subsequence
     """
     sub_sequences = generate_sub_sequence(df)
@@ -41,13 +41,13 @@ def transform_data(data, verbose=False):
     """Transform the input data to be used by prediction.
 
     Args:
-        data (list or dataframe): Input data in a list or 
+        data (list or dataframe): Input data in a list or
             dataframe with column name `sequence`.
-        verbose (bool, optional): Whether to print out statistics 
+        verbose (bool, optional): Whether to print out statistics
             of input protein sequence. Defaults to False.
 
     Raises:
-        TypeError: Exception wil be raised in the input data 
+        TypeError: Exception wil be raised in the input data
             don't have the right type.
 
     Returns:
@@ -58,9 +58,9 @@ def transform_data(data, verbose=False):
     if isinstance(data, list):
         df = pd.DataFrame(data, columns=['sequence'])
     elif isinstance(data, pd.DataFrame):
-        lst = list(data.sequence.values)
+        pass
     else:
-        raise TypeError(f"Invalid data type!")
+        raise TypeError("Invalid data type!")
     df = set_length_limit(df, verbose=verbose)
     df_features = features_as_df(df)
     features, _ = encode_data(df)
@@ -77,10 +77,12 @@ def predict_protein(data):
 
     Returns:
         pd.DataFrame: the prediction results for each sub-sequences.
-    """    
+    """
     model = load_model()
     features, df_features = transform_data(data)
     predictions = model.predict(features)
-    df_pred = pd.DataFrame(predictions, columns=['prob_disordered', 'prob_ordered'])
+    df_pred = pd.DataFrame(
+        predictions, columns=['prob_disordered', 'prob_ordered']
+        )
     df_pred = df_features.join(df_pred)
     return df_pred

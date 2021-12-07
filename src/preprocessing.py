@@ -1,9 +1,8 @@
 """Process the protein sequence into specified data format for modeling.
 """
 import pickle
-import numpy as np
 import pandas as pd
-from utils import encode_data
+# from utils import encode_data
 
 
 def set_length_limit(df, length_limit=40, verbose=True):
@@ -11,7 +10,8 @@ def set_length_limit(df, length_limit=40, verbose=True):
 
     Args:
         df (dataframe): dataframe of protein sequence
-        length_limit (int, optional): specified protein length limit. Defaults to 40.
+        length_limit (int, optional): specified protein length limit.
+            Defaults to 40.
 
     Returns:
         dataframe: sequences with length above specified length_limit
@@ -71,7 +71,8 @@ def clean_ordered_sequence(infile_ordered_1, infile_ordered_2):
     return df_ordered
 
 
-def save_processed_data(array_ordered, labels_ordered, array_disordered, labels_disordered):
+def save_processed_data(array_ordered, labels_ordered,
+                        array_disordered, labels_disordered):
     """Save the processed data in a pickle format.
 
     Args:
@@ -94,25 +95,27 @@ def save_processed_data(array_ordered, labels_ordered, array_disordered, labels_
         pickle.dump(dict_data, f_write)
 
 
-def main():
-    """Main.
-    """
-    infile_disordered = "disordered_sequences.csv"
-    infile_ordered_1 = "rcsb_pdb_sequence_9b20c2e6f4e2322c79be67683f6cf968_2501-3856.csv"
-    infile_ordered_2 = "rcsb_pdb_sequence_9b20c2e6f4e2322c79be67683f6cf968_0001-2500.csv"
-    df_disordered = clean_disordered_sequence(infile_disordered)
-    df_ordered = clean_ordered_sequence(infile_ordered_1, infile_ordered_2)
-    array_ordered, labels_ordered = encode_data(
-        df_ordered, 'ordered'
-    )
-    array_disordered, labels_disordered = encode_data(
-        df_disordered, 'disordered'
-    )
-    save_processed_data(
-        array_ordered, labels_ordered,
-        array_disordered, labels_disordered
-    )
+# def main():
+#     """Main.
+#     """
+#     infile_disordered = "disordered_sequences.csv"
+#     infile_ordered_1 = \
+#         "rcsb_pdb_sequence_9b20c2e6f4e2322c79be67683f6cf968_2501-3856.csv"
+#     infile_ordered_2 = \
+#         "rcsb_pdb_sequence_9b20c2e6f4e2322c79be67683f6cf968_0001-2500.csv"
+#     df_disordered = clean_disordered_sequence(infile_disordered)
+#     df_ordered = clean_ordered_sequence(infile_ordered_1, infile_ordered_2)
+#     array_ordered, labels_ordered = encode_data(
+#         df_ordered, 'ordered'
+#     )
+#     array_disordered, labels_disordered = encode_data(
+#         df_disordered, 'disordered'
+#     )
+#     save_processed_data(
+#         array_ordered, labels_ordered,
+#         array_disordered, labels_disordered
+#     )
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

@@ -1,10 +1,11 @@
 import os
 import numpy as np
 import pytest
-import pandas as pd
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from model import load_data, augment_data, combine_ordered_disordered
+from model import load_data,\
+                  augment_data,\
+                  combine_ordered_disordered  # noqa: E402
 
 
 @pytest.fixture(name="array_ordered")
@@ -66,7 +67,8 @@ def test_augment_data(array_disordered, labels_disordered):
         (1 + num_times) * labels_disordered.shape[0]
 
 
-def test_combine_ordered_disordered(array_ordered, labels_ordered, array_disordered, labels_disordered):
+def test_combine_ordered_disordered(array_ordered, labels_ordered,
+                                    array_disordered, labels_disordered):
     features, labels = combine_ordered_disordered(
         array_ordered, labels_ordered,
         array_disordered, labels_disordered
