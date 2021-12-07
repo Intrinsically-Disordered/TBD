@@ -29,8 +29,9 @@ def read_data(infile):
 
 
 def load_data(infile):
-    """Prepare data for model fitting. Disordered data are augmented. 
-       Ordered and disordered data are combined. Data are split into training and testing.
+    """Prepare data for model fitting. Disordered data are augmented.
+       Ordered and disordered data are combined. Data are split into
+       training and testing.
 
     Args:
         infile (str): path to file
@@ -43,7 +44,8 @@ def load_data(infile):
     array_disordered_augmented, labels_disordered_augmented = \
         augment_data(array_disordered, labels_disordered, num_times=6)
     features, labels = combine_ordered_disordered(
-        array_ordered, labels_ordered, array_disordered_augmented, labels_disordered_augmented
+        array_ordered, labels_ordered,
+        array_disordered_augmented, labels_disordered_augmented
     )
     features = features.reshape((len(features), HEIGHT, WIDTH, 1))
     labels = tf.keras.utils.to_categorical(labels)
@@ -59,10 +61,12 @@ def augment_data(features, labels, num_times=6):
     Args:
         features (np.ndarray): three-dimensional array
         labels (np.ndarray): one-dimensional array
-        num_times (int, optional): the number of times of samples. Defaults to 6.
+        num_times (int, optional): the number of times of
+            samples. Defaults to 6.
 
     Returns:
-        np.ndarray: three-dimensional and one-dimensional array after being augmented.
+        np.ndarray: three-dimensional and one-dimensional array
+            after being augmented.
     """
     num_obs = features.shape[0]
     np.random.seed(10086)
@@ -80,10 +84,14 @@ def combine_ordered_disordered(array_ordered, labels_ordered,
     """Combine the ordered and disordered data into one array
 
     Args:
-        array_ordered (np.ndarray): three-dimensional array of ordered protein
-        labels_ordered (np.ndarray): one-dimensional array of ordered protein labels
-        array_disordered (np.ndarray): three-dimensional array of disordered protein
-        labels_disordered (np.ndarray): one-dimensional array of disordered protein labels
+        array_ordered (np.ndarray): three-dimensional array
+            of ordered protein
+        labels_ordered (np.ndarray): one-dimensional array
+            of ordered protein labels
+        array_disordered (np.ndarray): three-dimensional array
+            of disordered protein
+        labels_disordered (np.ndarray): one-dimensional array
+            of disordered protein labels
 
     Returns:
         np.ndarray: [description]
@@ -122,21 +130,23 @@ def fit_model(X_train, X_test, y_train, y_test):
     model.add(tf.keras.layers.Dense(2, activation='softmax'))
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
                   loss=tf.keras.losses.CategoricalCrossentropy(),
-                  metrics=[tf.keras.metrics.CategoricalAccuracy(), tf.keras.metrics.AUC()])
+                  metrics=[tf.keras.metrics.CategoricalAccuracy(),
+                  tf.keras.metrics.AUC()])
     model.fit(X_train, y_train, steps_per_epoch=len(X_train)//9, epochs=15,
-              validation_data=(X_test, y_test), validation_steps=int(len(X_test)/5))
+              validation_data=(X_test, y_test),
+              validation_steps=int(len(X_test)/5))
     print(model.summary())
     return model
 
 
-def main():
-    """Main.
-    """
-    infile = "../data/protein_processed_data.pkl"
-    X_train, X_test, y_train, y_test = load_data(infile)
-    model = fit_model(X_train, X_test, y_train, y_test)
-    model.save('fitted_model')
+# def main():
+#     """Main.
+#     """
+#     infile = "../data/protein_processed_data.pkl"
+#     X_train, X_test, y_train, y_test = load_data(infile)
+#     model = fit_model(X_train, X_test, y_train, y_test)
+#     model.save('fitted_model')
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

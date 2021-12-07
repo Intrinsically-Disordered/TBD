@@ -5,9 +5,10 @@ import pandas as pd
 import os
 import tensorflow as tf
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-import utils
-import preprocessing
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),
+                '..')))
+import utils  # noqa: E402
+import preprocessing  # noqa: E402
 
 
 LENGTH_LIMIT = 40
@@ -17,16 +18,22 @@ LENGTH_LIMIT = 40
 def example_data():
     sequences = [
         "LLGDFFRKSKEKIGKEFKRIVQRIKDFLRNLVPRTES",
-        "MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPILSLNRKPKSRVESALNPIDLTVLAEYHKQIESNLQRIERKNQTWYS",
+        "MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPIL"
+        "SLNRKPKSRVESALNPIDLTVLAEYHKQIESNLQRIERKNQTWYS",
         "MDAQTRRRERRAEKQAQWKAAN"]
     return sequences
 
 
 @pytest.fixture(name="input_dataframe")
 def example_dataframe():
-    df = pd.DataFrame({"sequence": ['EHVIEMDVTSENGQRALKEQSSKAKIVKNRWGRNVVQISNT',
-                                    'VYRNSRAQGGG',
-                                    'MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPILSLNRKPKS']})
+    df = pd.DataFrame(
+        {
+            "sequence":
+                ['EHVIEMDVTSENGQRALKEQSSKAKIVKNRWGRNVVQISNT',
+                 'VYRNSRAQGGG',
+                 'MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPILSLNRKPKS']
+         }
+        )
     return df
 
 
@@ -40,7 +47,8 @@ def test_check_protein_letters(input_data):
 
 def test_check_protein_letters_invalid():
     sequences = [
-        "BDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPILSLNRKPKSRVESALNPIDLTVLAEYHKQIESNLQRIERKNQTWYB"
+        "BDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPILSLNR"
+        "KPKSRVESALNPIDLTVLAEYHKQIESNLQRIERKNQTWYB"
         ]
     with pytest.raises(TypeError):
         utils.check_protein_letters(sequences)
@@ -60,7 +68,6 @@ def test_generate_sub_sequence(input_dataframe):
     assert len(result.keys()) > 0
 
 
-
 def test_one_hot_encoding(input_data):
     lst_sequences = ["MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPILSL"]
     array = utils.one_hot_encoding(lst_sequences, LENGTH_LIMIT)
@@ -68,7 +75,7 @@ def test_one_hot_encoding(input_data):
     assert len(array.shape) == 3
     with pytest.raises(IndexError):
         utils.one_hot_encoding(input_data, LENGTH_LIMIT)
-    
+
 
 def test_encode_data(input_dataframe):
     array_encoded, labels = utils.encode_data(input_dataframe)

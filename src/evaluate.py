@@ -1,6 +1,6 @@
 """Evaluate the performance of the trained model."""
-from model import load_data
-from utils import load_model
+# from model import load_data
+# from utils import load_model
 
 
 def evaluate_model(model, test_images, test_labels):
@@ -16,13 +16,13 @@ def evaluate_model(model, test_images, test_labels):
     print(model.predict(test_images))
 
 
-def main():
-    model = load_model()
-    print(type(model))
-    data_infile = "../data/protein_processed_data.pkl"
-    X_train, X_test, y_train, y_test = load_data(data_infile)
-    evaluate_model(model, X_test, y_test)
+# def main():
+#     model = load_model()
+#     print(type(model))
+#     data_infile = "../data/protein_processed_data.pkl"
+#     X_train, X_test, y_train, y_test = load_data(data_infile)
+#     evaluate_model(model, X_test, y_test)
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
