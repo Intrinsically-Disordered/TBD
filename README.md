@@ -5,7 +5,7 @@
 
 The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
 
-![The TBD logo, nice isn't it?](https://github.com/Intrinsically-Disordered/TBD/blob/main/TBDlogo.png?raw=True)
+![The TBD logo, nice isn't it?](doc/TBDlogo.png)
 
 ## Project Objective
 
@@ -60,7 +60,7 @@ The package TBD can be installed with the following steps:
 
 This project aims to be of use to the general public with interest in learning about classifying proteins, scientists determining if the protein they are working with or designed is disordered, and by those with experience in machine learning. 
  
-![Use cases graphic](https://github.com/Intrinsically-Disordered/TBD/blob/main/use_cases.png?raw=True)
+![Use cases graphic](doc/use_cases.png)
 
 ## Modules Overview
 
