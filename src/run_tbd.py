@@ -1,3 +1,6 @@
+"""Run script to launch the pipeline of 
+   data processing, modeling and prediction.
+"""
 import evaluate
 import model
 import preprocessing
@@ -28,9 +31,10 @@ preprocessing.save_processed_data(
 )
 
 # Fit model
+model_name = "fitted_model"
 X_train, X_test, y_train, y_test = model.load_data(processed_file)
 model = model.fit_model(X_train, X_test, y_train, y_test)
-model.save('fitted_model_test')
+model.save(model_name)
 
 # Evaluate model
 model = utils.load_model()
