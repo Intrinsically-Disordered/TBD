@@ -56,12 +56,12 @@ def transform_data(data, verbose=False):
             and the sub-sequences.
     """
     if isinstance(data, list):
-        df = pd.DataFrame(data, columns=['sequence'])
+        data = pd.DataFrame(data, columns=['sequence'])
     elif isinstance(data, pd.DataFrame):
         pass
     else:
         raise TypeError("Invalid data type!")
-    df = set_length_limit(df, verbose=verbose)
+    df = set_length_limit(data, verbose=verbose)
     df_features = features_as_df(df)
     features, _ = encode_data(df)
     shapes = features.shape
