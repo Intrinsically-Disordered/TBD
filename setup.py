@@ -2,7 +2,6 @@ import sys
 from pathlib import Path
 from setuptools import setup, find_packages
 
-
 if __name__ == '__main__':
     base_dir = Path(__file__).parent
     src_dir = base_dir/'src'/'tbd'
@@ -38,10 +37,11 @@ if __name__ == '__main__':
           author=about.__author__,
           author_email=about.__email__,
 
-          package_dir={'': 'src'},
-          package_data={'': ['data/*.csv', 'data/*.pkl', 'fitted_model']},
+          package_dir={'tbd': 'src'},
+          #package_data={'': ['data/*.csv', 'data/*.pkl', 'fitted_model']},
           packages=find_packages(),
-          include_package_data=True,
+          # packages=['tbd'],
+          #include_package_data=True,
 
           install_requires=install_requirements,
           tests_require=test_requirements,
