@@ -1,4 +1,3 @@
-# main-project
 # Project TBD [Tau Be Damned]
 
 -------------------------
