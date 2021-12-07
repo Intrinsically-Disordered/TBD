@@ -27,11 +27,11 @@ While many proteins fold into regular conformations which can be easily analyzed
 
 Package TBD has the following major dependencies:
 
-python = 3.6
-tensorflow = 2.4
-scikit-learn = 0.23
-scipy = 1.5
-pandas = 1.1
+1. python = 3.6
+2. tensorflow = 2.4
+3. scikit-learn = 0.23
+4. scipy = 1.5
+5. pandas = 1.1
 
 The detailed list of dependencies can be found in the [environment.yml](environment.yml) file.
 
