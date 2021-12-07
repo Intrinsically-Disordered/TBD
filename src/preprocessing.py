@@ -71,7 +71,8 @@ def clean_ordered_sequence(infile_ordered_1, infile_ordered_2):
 
 
 def save_processed_data(array_ordered, labels_ordered,
-                        array_disordered, labels_disordered):
+        array_disordered, labels_disordered,
+        processed_data_file="data/protein_processed_data.pkl"):
     """Save the processed data in a pickle format.
 
     Args:
@@ -90,6 +91,6 @@ def save_processed_data(array_ordered, labels_ordered,
         "array_disordered": array_disordered,
         "labels_disordered": labels_disordered
     }
-    with open("data/protein_processed_data.pkl", "wb") as f_write:
+    with open(processed_data_file, "wb") as f_write:
         pickle.dump(dict_data, f_write)
 
