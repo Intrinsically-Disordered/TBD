@@ -5,6 +5,8 @@
 
 The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
 
+![The TBD logo, nice isn't it?](https://github.com/Intrinsically-Disordered/TBD/blob/main/TBDlogo.png?raw=True)
+
 ## Project Objective
 
 -------------------------
@@ -37,7 +39,9 @@ While many proteins fold into regular conformations which can be easily analyzed
 
 ------------------------
 
-
+This project aims to be of use to the general public with interest in learning about classifying proteins, scientists determining if the protein they are working with or designed is disordered, and by those with experience in machine learning. 
+ 
+![Use cases graphic](https://github.com/Intrinsically-Disordered/TBD/blob/main/use_cases.png?raw=True)
 
 ## Modules Overview
 
@@ -56,4 +60,4 @@ While many proteins fold into regular conformations which can be easily analyzed
  ### Contributions:
  If you would to contribute to TBD, you can fork the repository, add your contribution and generate a pull request. The complete guide to make contributions can be found at this <a href="https://github.com/Intrinsically-Disordered/TBD/blob/main/CONTRIBUTIONS.md">link</a>
 
-------------------------
+--------------------
