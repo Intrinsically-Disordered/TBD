@@ -49,14 +49,15 @@ def check_data(data, length_limit):
         length_limit (int): specified protein length limit.
 
     Raises:
-        TypeError: raise an exception if the input data don't have the right type.
+        TypeError: raise an exception if the input data don't
+            have the right type.
     """
     if isinstance(data, list):
         pass
     elif isinstance(data, pd.DataFrame):
-        lst = list(data.sequence.values)
+        data = list(data.sequence.values)
     else:
-        raise TypeError(f"Invalid data type!")
+        raise TypeError("Invalid data type!")
     check_length(data, length_limit)
     check_protein_letters(data)
 
@@ -67,8 +68,8 @@ def generate_sub_sequence(df, size=40, strides=10):
     Args:
         df (dataframe): [description]
         size (int, optional): specified protein length limit. Defaults to 40.
-        strides (int, optional): length of strides with which to extract the sequence.
-            Defaults to 10.
+        strides (int, optional): length of strides with which to extract
+            the sequence. Defaults to 10.
 
     Returns:
         list: a list of sequences with specified size.
@@ -85,7 +86,8 @@ def one_hot_encoding(lst_sequences, length_limit):
     """One-hot encoding the sequences.
 
     Args:
-        lst_sequences (list): a list of sub_sequences with length of `length_limit`
+        lst_sequences (list): a list of sub_sequences with
+            length of `length_limit`
         length_limit (int): specified protein length limit. Defaults to 40.
 
     Returns:
@@ -108,19 +110,20 @@ def encode_data(df, protein_type=None, size=40, strides=10):
         df (dataframe): input data in a dataframe
         protein_type (str, optional): one of ['ordered', 'disordered', None]
         size (int, optional): specified protein length limit. Defaults to 40.
-        strides (int, optional): length of strides with which to extract the sequence.
-            Defaults to 10.
+        strides (int, optional): length of strides with which to
+            extract the sequence. Defaults to 10.
 
     Raises:
         Exception: raise exception if the protein_type is not correct.
 
     Returns:
-        numpy.ndarray: three-dimensional array of one-hot-encoding for features
-            (num_obs, size, len(UNIQUE_LETTERS))
+        numpy.ndarray: three-dimensional array of one-hot-encoding
+            for features (num_obs, size, len(UNIQUE_LETTERS))
         numpy.ndarray: one-dimensional array of labels
     """
     sub_sequences = generate_sub_sequence(df, size=size, strides=strides)
     lst_sequences = list(sub_sequences.values())[0]
+    num_obs = len(lst_sequences)
     array_encoded = one_hot_encoding(lst_sequences, size)
     if protein_type == 'ordered':
         labels = np.array([1]*num_obs)
@@ -135,7 +138,8 @@ def load_model(infile="fitted_model"):
     """Load fitted model.
 
     Args:
-        infile (str, optional): path to saved model. Defaults to "fitted_model".
+        infile (str, optional): path to saved model.
+            Defaults to "fitted_model".
 
     Returns:
         model: fitted model.
