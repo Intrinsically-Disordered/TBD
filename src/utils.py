@@ -21,7 +21,7 @@ def check_length(lst, length_limit):
     for seq in lst:
         if len(seq) < length_limit:
             print(f"The sequence {seq} is less than "
-                  "the specified length limit {length_limit}")
+                  "the specified length limit!")
         else:
             pass
 
@@ -145,5 +145,8 @@ def load_model(infile="fitted_model"):
     Returns:
         model: fitted model.
     """
+    import os
+    inpath = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    os.chdir(inpath)
     model = tf.keras.models.load_model(infile)
     return model
