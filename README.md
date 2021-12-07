@@ -53,6 +53,8 @@ The package TBD can be installed with the following steps:
 
 ------------------------
 
+An example to run the whole pipeline of data processing, modeling and prediction using a single script can be found here: [run_tbd.py](src/run_tbd.py)
+
 ## Use Cases
 
 ------------------------
