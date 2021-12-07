@@ -2,7 +2,6 @@
 """
 import pickle
 import pandas as pd
-# from utils import encode_data
 
 
 def set_length_limit(df, length_limit=40, verbose=True):
@@ -72,7 +71,8 @@ def clean_ordered_sequence(infile_ordered_1, infile_ordered_2):
 
 
 def save_processed_data(array_ordered, labels_ordered,
-                        array_disordered, labels_disordered):
+        array_disordered, labels_disordered,
+        processed_data_file="data/protein_processed_data.pkl"):
     """Save the processed data in a pickle format.
 
     Args:
@@ -91,31 +91,6 @@ def save_processed_data(array_ordered, labels_ordered,
         "array_disordered": array_disordered,
         "labels_disordered": labels_disordered
     }
-    with open("../data/protein_processed_data.pkl", "wb") as f_write:
+    with open(processed_data_file, "wb") as f_write:
         pickle.dump(dict_data, f_write)
 
-
-# def main():
-#     """Main.
-#     """
-#     infile_disordered = "disordered_sequences.csv"
-#     infile_ordered_1 = \
-#         "rcsb_pdb_sequence_9b20c2e6f4e2322c79be67683f6cf968_2501-3856.csv"
-#     infile_ordered_2 = \
-#         "rcsb_pdb_sequence_9b20c2e6f4e2322c79be67683f6cf968_0001-2500.csv"
-#     df_disordered = clean_disordered_sequence(infile_disordered)
-#     df_ordered = clean_ordered_sequence(infile_ordered_1, infile_ordered_2)
-#     array_ordered, labels_ordered = encode_data(
-#         df_ordered, 'ordered'
-#     )
-#     array_disordered, labels_disordered = encode_data(
-#         df_disordered, 'disordered'
-#     )
-#     save_processed_data(
-#         array_ordered, labels_ordered,
-#         array_disordered, labels_disordered
-#     )
-
-
-# if __name__ == "__main__":
-#     main()

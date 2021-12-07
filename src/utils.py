@@ -74,12 +74,12 @@ def generate_sub_sequence(df, size=40, strides=10):
     Returns:
         list: a list of sequences with specified size.
     """
-    lst = defaultdict(list)
+    dict_lst = defaultdict(list)
     for sequence in df.sequence.values:
         for ix in range((len(sequence)-size)//strides+1):
             sub = sequence[strides*ix: strides*ix+size]
-            lst[sequence].append(sub)
-    return lst
+            dict_lst[sequence].append(sub)
+    return dict_lst
 
 
 def one_hot_encoding(lst_sequences, length_limit):
@@ -122,7 +122,8 @@ def encode_data(df, protein_type=None, size=40, strides=10):
         numpy.ndarray: one-dimensional array of labels
     """
     sub_sequences = generate_sub_sequence(df, size=size, strides=strides)
-    lst_sequences = list(sub_sequences.values())[0]
+    lst_sequences = list(sub_sequences.values())
+    lst_sequences = [item for sublist in lst_sequences for item in sublist]
     num_obs = len(lst_sequences)
     array_encoded = one_hot_encoding(lst_sequences, size)
     if protein_type == 'ordered':
