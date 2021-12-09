@@ -76,4 +76,4 @@ This project aims to be of use to the general public with interest in learning a
  
  ## Acknowledgements
 
-This software has been created for CSE 583 under the guidence of Professor David Beck and Anant Mittal from the University of Washington. We thank them for their technical expertise and oversight in helping to make this project a reality.
+This software has been created for CSE 583 under the guidance of Professor David Beck and Anant Mittal from the University of Washington. We thank them for their technical expertise and oversight in helping to make this project a reality.
