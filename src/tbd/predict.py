@@ -69,7 +69,7 @@ def transform_data(data, verbose=False):
     return arrary_features, df_features
 
 
-def predict_protein(data):
+def predict_protein(data, infile_model=None):
     """Predict the protein sequence.
 
     Args:
@@ -78,7 +78,10 @@ def predict_protein(data):
     Returns:
         pd.DataFrame: the prediction results for each sub-sequences.
     """
-    model = load_model()
+    if infile_model is None:
+        model = load_model()
+    else:
+        model = load_model(infile_model)
     features, df_features = transform_data(data)
     predictions = model.predict(features)
     df_pred = pd.DataFrame(
