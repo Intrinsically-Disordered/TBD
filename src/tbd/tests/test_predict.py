@@ -1,13 +1,9 @@
 import pytest
 import numpy as np
 import pandas as pd
-import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),
-                '..')))
-from predict import features_as_df,\
+from tbd.predict import features_as_df,\
     transform_data,\
-    predict_protein  # noqa: E402
+    predict_protein
 
 
 @pytest.fixture(name="input_data")
