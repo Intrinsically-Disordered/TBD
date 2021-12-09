@@ -38,9 +38,9 @@ if __name__ == '__main__':
           author=about.__author__,
           author_email=about.__email__,
 
-          package_dir={'': 'src'},
-          package_data={'': ['data/*.csv', 'data/*.pkl', 'fitted_model']},
-          packages=find_packages(),
+          package_dir={'tbd': 'tbd'},
+          # packages=find_packages(),
+          packages=['tbd'],
           include_package_data=True,
 
           install_requires=install_requirements,

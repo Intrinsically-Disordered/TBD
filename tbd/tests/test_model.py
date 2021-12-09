@@ -1,11 +1,9 @@
 import os
 import numpy as np
 import pytest
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from model import load_data,\
+from tbd.model import load_data,\
                   augment_data,\
-                  combine_ordered_disordered  # noqa: E402
+                  combine_ordered_disordered
 
 
 @pytest.fixture(name="array_ordered")

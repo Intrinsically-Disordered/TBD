@@ -1,0 +1,4 @@
+include tbd/pretrained_model
+include tbd/pretrained_model/*
+include tbd/pretrained_model/variables/*
+include tbd/data/*.csv

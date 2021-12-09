@@ -1,6 +1,7 @@
 """Utility functions."""
 from collections import defaultdict
 import numpy as np
+import os
 import pandas as pd
 import tensorflow as tf
 
@@ -41,7 +42,7 @@ def check_protein_letters(lst):
                 continue
 
 
-def check_data(data, length_limit):
+def check_data(data, length_limit=40):
     """Check the input data.
 
     Args:
@@ -135,7 +136,7 @@ def encode_data(df, protein_type=None, size=40, strides=10):
     return array_encoded, labels
 
 
-def load_model(infile="fitted_model"):
+def load_model(infile_model=None):
     """Load fitted model.
 
     Args:
@@ -145,8 +146,12 @@ def load_model(infile="fitted_model"):
     Returns:
         model: fitted model.
     """
-    infile = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), '..', infile),
-        )
-    model = tf.keras.models.load_model(infile)
+    if infile_model is None:
+        # Predict with pretrained model if no model is provided.
+        infile_model = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), "pretrained_model")
+            )
+    else:
+        pass
+    model = tf.keras.models.load_model(infile_model)
     return model

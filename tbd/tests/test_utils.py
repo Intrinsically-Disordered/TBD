@@ -2,13 +2,9 @@ from collections import defaultdict
 import pytest
 import numpy as np
 import pandas as pd
-import os
 import tensorflow as tf
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__),
-                '..')))
-import utils  # noqa: E402
-import preprocessing  # noqa: E402
+import tbd.utils as utils
+import tbd.preprocessing as preprocessing
 
 
 LENGTH_LIMIT = 40
