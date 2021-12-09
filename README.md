@@ -1,14 +1,10 @@
 # Project TBD [Tau Be Damned]
 
--------------------------
-
 The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
 
 ![The TBD logo, nice isn't it?](doc/TBDlogo.png)
 
 ## Project Objective
-
--------------------------
 
 Our goal is to build a tool to identify whether a protein is disordered based on its amino acid sequence. We have collected amino acid
 sequences for ordered and disordered proteins from publicly available datasets to train a machine learning model to perform the
@@ -16,15 +12,11 @@ classification task.
 
 ## Mission
 
--------------------------
-
 We share an interest in proteins.
 While many proteins fold into regular conformations which can be easily analyzed on a structural basis, intrinsically disordered proteins
 (IDPs) do not. IDPs like tau are implicated in diseases such as Alzheimer's and other neurodegenerative diseases. We aim to employ machine learning tools to improve the study of IDPs for scientific researchers and citizen scientists alike.
 
 ## Requirements
-
-------------------------
 
 Package TBD has the following major dependencies:
 
@@ -39,8 +31,6 @@ The detailed list of dependencies can be found in the [environment.yml](environm
 
 ## Installation
 
-------------------------
-
 The package TBD can be installed with the following steps:
 
 1. Download the repository: <code>git clone https://github.com/Intrinsically-Disordered/TBD.git</code>
@@ -50,10 +40,7 @@ The package TBD can be installed with the following steps:
 5. Install the package: <code>python setup.py install</code>
 6. Check installation run: <code>python -c "import tbd"</code>
 
-
 ## Usage
-
-------------------------
 
 An example to run the whole pipeline of data processing, modeling and prediction using a single script can be found here: [run_tbd.py](doc/examples/run_tbd.py)
 
@@ -61,15 +48,11 @@ An example to predict with the pretrained model can be found here: [example note
 
 ## Use Cases
 
-------------------------
-
 This project aims to be of use to the general public with interest in learning about classifying proteins, scientists determining if the protein they are working with or designed is disordered, and by those with experience in machine learning. 
  
 ![Use cases graphic](doc/use_cases.png)
 
 ## Modules Overview
-
-------------------------
 
 * __preprocessing.py__         :  Functions related to data cleaning and data processing to be ready for modeling.
 * __model.py__        :  Functions related to modeling of convolutional neural network (CNN).
@@ -79,8 +62,6 @@ This project aims to be of use to the general public with interest in learning a
 
 
 ## Community Guidelines
-
---------------------
 
  We welcome the members of open-source community to extend the functionalities of TBD, submit feature requests and report bugs.
  
@@ -92,3 +73,7 @@ This project aims to be of use to the general public with interest in learning a
  
  ### Contributions:
  If you would to contribute to TBD, you can fork the repository, add your contribution and generate a pull request. The complete guide to make contributions can be found at this <a href="https://github.com/Intrinsically-Disordered/TBD/blob/main/CONTRIBUTIONS.md">link</a>
+ 
+ ## Acknowledgements
+
+This software has been created for CSE 583 under the guidence of Professor David Beck and Anant Mittal from the University of Washington. We thank them for their technical expertise and oversight in helping to make this project a reality.
