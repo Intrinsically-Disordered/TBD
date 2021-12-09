@@ -14,7 +14,6 @@ matrix:
 branches:
     only:
         - main
-        #- model
 
 # commands to prepare the conda install - download the latest conda
 # and install it and add to path
@@ -33,7 +32,7 @@ install:
 
 # a list of commands to run before the main script
 before_script:
-    - flake8 codebase
+    - flake8 tbd
 
 # the actual commands to run
 script:

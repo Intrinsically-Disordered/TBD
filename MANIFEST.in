@@ -2,3 +2,4 @@ include tbd/pretrained_model
 include tbd/pretrained_model/*
 include tbd/pretrained_model/variables/*
 include tbd/data/*.csv
+include tbd/data/protein_processed_data.pkl
