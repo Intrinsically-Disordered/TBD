@@ -5,13 +5,10 @@ from setuptools import setup, find_packages
 
 if __name__ == '__main__':
     base_dir = Path(__file__).parent
-    src_dir = base_dir/'src'/'tbd'
+    src_dir = base_dir/'tbd'
 
     sys.path.insert(0, src_dir.as_posix())
     import __about__ as about
-
-    with (base_dir/'README.rst').open() as f:
-        long_description = f.read()
 
     install_requirements = [
         'numpy',
@@ -31,7 +28,6 @@ if __name__ == '__main__':
           version=about.__version__,
 
           description=about.__summary__,
-          long_description=long_description,
           license=about.__license__,
           url=about.__uri__,
 

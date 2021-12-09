@@ -45,8 +45,10 @@ The package TBD can be installed with the following steps:
 
 1. Download the repository: <code>git clone https://github.com/Intrinsically-Disordered/TBD.git</code>
 2. Go to the root directory:  <code>cd TBD</code>
-3. Install the package: <code>python setup.py install</code>
-5. Check installation run: <code>python -c "import tbd"</code>
+3. Create a virtual environment: <code>conda env create --name tbdenv -f environment.yml</code>
+4. Activate the environment: <code>conda activate tbdenv</code>
+5. Install the package: <code>python setup.py install</code>
+6. Check installation run: <code>python -c "import tbd"</code>
 
 
 ## Usage
