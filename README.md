@@ -2,7 +2,7 @@
 
 The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
 
-![The TBD logo, nice isn't it?](doc/TBDlogo.png)
+![The TBD logo, nice isn't it?](doc/tbdlogo.png)
 
 ## Project Objective
 
@@ -15,6 +15,11 @@ classification task.
 We share an interest in proteins.
 While many proteins fold into regular conformations which can be easily analyzed on a structural basis, intrinsically disordered proteins
 (IDPs) do not. IDPs like tau are implicated in diseases such as Alzheimer's and other neurodegenerative diseases. We aim to employ machine learning tools to improve the study of IDPs for scientific researchers and citizen scientists alike.
+
+## Repository Structure
+
+![repo tree](doc/tbd_tree.png)
+
 
 ## Requirements
 
