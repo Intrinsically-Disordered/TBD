@@ -2,7 +2,7 @@
 
 The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
 
-![The TBD logo, nice isn't it?](doc/tbdlogo.png)
+<img align="right" src="https://github.com/Intrinsically-Disordered/TBD/blob/main/doc/TBDlogo.png" width="350">
 
 ## Project Objective
 
