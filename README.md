@@ -17,9 +17,34 @@ While many proteins fold into regular conformations which can be easily analyzed
 (IDPs) do not. IDPs like tau are implicated in diseases such as Alzheimer's and other neurodegenerative diseases. We aim to employ machine learning tools to improve the study of IDPs for scientific researchers and citizen scientists alike.
 
 ## Repository Structure
-
-![repo tree](doc/tbd_tree.png)
-
+```
+.
+├── data
+├── doc
+│   ├── examples
+│   │   ├── example_of_how_to_predict_with_package.ipynb
+│   │   └── run_tbd.py
+│   ├── images
+│   └── user_stories.md
+├── environment.yml
+├── README.md
+├── setup.py
+└── tbd
+    ├── __about__.py
+    ├── evaluate.py
+    ├── __init__.py
+    ├── model.py
+    ├── predict.py
+    ├── preprocessing.py
+    ├── pretrained_model
+    ├── tests
+    │   ├── test_evaluate.py
+    │   ├── test_model.py
+    │   ├── test_predict.py
+    │   ├── test_preprocessing.py
+    │   └── test_utils.py
+    └── utils.py
+```
 
 ## Requirements
 
