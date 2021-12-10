@@ -2,7 +2,7 @@
 
 The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
 
-![The TBD logo, nice isn't it?](doc/TBDlogo.png)
+![The TBD logo, nice isn't it?](doc/images/TBDlogo.png)
 
 ## Project Objective
 
@@ -50,7 +50,7 @@ An example to predict with the pretrained model can be found here: [example note
 
 This project aims to be of use to the general public with interest in learning about classifying proteins, scientists determining if the protein they are working with or designed is disordered, and by those with experience in machine learning. 
  
-![Use cases graphic](doc/use_cases.png)
+![Use cases graphic](doc/images/use_cases.png)
 
 ## Modules Overview
 
