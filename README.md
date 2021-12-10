@@ -2,7 +2,7 @@
 
 The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
 
-<img align="right" src="https://github.com/Intrinsically-Disordered/TBD/blob/main/doc/TBDlogo.png" width="350">
+<img align="right" src="https://github.com/Intrinsically-Disordered/TBD/blob/main/doc/images/TBDlogo.png" width="350">
 
 ## Project Objective
 
@@ -38,11 +38,6 @@ While many proteins fold into regular conformations which can be easily analyzed
     ├── preprocessing.py
     ├── pretrained_model
     ├── tests
-    │   ├── test_evaluate.py
-    │   ├── test_model.py
-    │   ├── test_predict.py
-    │   ├── test_preprocessing.py
-    │   └── test_utils.py
     └── utils.py
 ```
 
