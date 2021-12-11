@@ -19,6 +19,7 @@ def read_data(infile):
     Returns:
         np.ndarray: numpy arrays for features and labels
     """
+    print(f"Reading data from {infile}")
     with open(infile, 'rb') as f_read:
         obj = pickle.load(f_read)
     array_ordered = obj["array_ordered"]
@@ -39,14 +40,20 @@ def load_data(infile):
     Returns:
         np.ndarray: features and labels for training and testing.
     """
+    print(f"Loading data from {infile}")
     array_ordered, labels_ordered, array_disordered, labels_disordered = \
         read_data(infile)
-    array_disordered_augmented, labels_disordered_augmented = \
-        augment_data(array_disordered, labels_disordered, num_times=6)
     features, labels = combine_ordered_disordered(
         array_ordered, labels_ordered,
-        array_disordered_augmented, labels_disordered_augmented
+        array_disordered, labels_disordered
     )
+    # Augment the disordered sequences to address imbalance of classes.
+    # array_disordered_augmented, labels_disordered_augmented = \
+    #     augment_data(array_disordered, labels_disordered, num_times=6)
+    # features, labels = combine_ordered_disordered(
+    #     array_ordered, labels_ordered,
+    #     array_disordered_augmented, labels_disordered_augmented
+    # )
     features = features.reshape((len(features), HEIGHT, WIDTH, 1))
     labels = tf.keras.utils.to_categorical(labels)
     X_train, X_test, y_train, y_test = train_test_split(
@@ -132,8 +139,12 @@ def fit_model(X_train, X_test, y_train, y_test):
                   loss=tf.keras.losses.CategoricalCrossentropy(),
                   metrics=[tf.keras.metrics.CategoricalAccuracy(),
                   tf.keras.metrics.AUC()])
+    sample_weight = np.ones(shape=(len(y_train),))
+    # Give more weights to rarely-seen classes (disordered).
+    sample_weight[y_train == 0] = 2.0
     model.fit(X_train, y_train, steps_per_epoch=len(X_train)//9, epochs=15,
               validation_data=(X_test, y_test),
-              validation_steps=int(len(X_test)/5))
+              validation_steps=int(len(X_test)/5),
+              sample_weight=sample_weight)
     print(model.summary())
     return model
