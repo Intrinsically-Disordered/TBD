@@ -21,8 +21,8 @@ def check_length(lst, length_limit):
     """
     for seq in lst:
         if len(seq) < length_limit:
-            print(f"The sequence {seq} is less than "
-                  f"the specified length limit {length_limit}")
+            print(f'The sequence {seq} is less than '
+                  f'the specified length limit {length_limit}')
         else:
             pass
 
@@ -37,7 +37,7 @@ def check_protein_letters(lst):
         for letter in seq:
             if letter not in UNIQUE_LETTERS:
                 raise TypeError(
-                    f"The sequence {seq} contains invalid letters.")
+                    f'The sequence {seq} contains invalid letters.')
             else:
                 continue
 
@@ -58,7 +58,7 @@ def check_data(data, length_limit=40):
     elif isinstance(data, pd.DataFrame):
         data = list(data.sequence.values)
     else:
-        raise TypeError("Invalid data type!")
+        raise TypeError('Invalid data type!')
     check_length(data, length_limit)
     check_protein_letters(data)
 
@@ -149,8 +149,8 @@ def load_model(infile_model=None):
     if infile_model is None:
         # Predict with pretrained model if no model is provided.
         infile_model = os.path.abspath(
-            os.path.join(os.path.dirname(__file__), "pretrained_model")
-            )
+            os.path.join(os.path.dirname(__file__), 'pretrained_model')
+        )
     else:
         pass
     model = tf.keras.models.load_model(infile_model)

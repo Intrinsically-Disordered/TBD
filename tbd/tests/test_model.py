@@ -2,11 +2,11 @@ import os
 import numpy as np
 import pytest
 from tbd.model import load_data,\
-                  augment_data,\
-                  combine_ordered_disordered
+    augment_data,\
+    combine_ordered_disordered
 
 
-@pytest.fixture(name="array_ordered")
+@pytest.fixture(name='array_ordered')
 def features_ordered():
     array = np.array([[[0, 2],
                        [2, 0],
@@ -18,7 +18,7 @@ def features_ordered():
     return array
 
 
-@pytest.fixture(name="array_disordered")
+@pytest.fixture(name='array_disordered')
 def features_disordered():
     array = np.array([[[1, 1],
                        [3, 3],
@@ -30,13 +30,13 @@ def features_disordered():
     return array
 
 
-@pytest.fixture(name="labels_ordered")
+@pytest.fixture(name='labels_ordered')
 def outcome_ordered():
     array = np.array([1, 0])
     return array
 
 
-@pytest.fixture(name="labels_disordered")
+@pytest.fixture(name='labels_disordered')
 def outcome_disordered():
     array = np.array([1, 1])
     return array
@@ -45,7 +45,7 @@ def outcome_disordered():
 def test_load_data():
     parent_dir = os.path.abspath(os.path.join(
         os.path.dirname(__file__), '../../data'))
-    infile = os.path.join(parent_dir, "protein_processed_data.pkl")
+    infile = os.path.join(parent_dir, 'protein_processed_data.pkl')
     array_ordered, labels_ordered, array_disordered, labels_disordered = \
         load_data(infile)
     assert isinstance(array_ordered, np.ndarray)

@@ -6,17 +6,17 @@ from tbd.predict import features_as_df,\
     predict_protein
 
 
-@pytest.fixture(name="input_data")
+@pytest.fixture(name='input_data')
 def example_data():
     sequences = [
-        "LLGDFFRKSKEKIGKEFKRIVQRIKDFLRNLVPRTES",
-        "MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPIL"
-        "SLNRKPKSRVESALNPIDLTVLAEYHKQIESNLQRIERKNQTWYS",
-        "MDAQTRRRERRAEKQAQWKAAN"]
+        'LLGDFFRKSKEKIGKEFKRIVQRIKDFLRNLVPRTES',
+        'MDAQTRRRERRAEKQAQWKAANPLLVGVSAKPVNRPIL'
+        'SLNRKPKSRVESALNPIDLTVLAEYHKQIESNLQRIERKNQTWYS',
+        'MDAQTRRRERRAEKQAQWKAAN']
     return sequences
 
 
-@pytest.fixture(name="input_dataframe")
+@pytest.fixture(name='input_dataframe')
 def example_dataframe(input_data):
     df = pd.DataFrame(input_data, columns=['sequence'])
     return df

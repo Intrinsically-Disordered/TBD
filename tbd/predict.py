@@ -31,7 +31,7 @@ def features_as_df(df):
         lst.append(df_seq)
     if len(lst) == 0:
         raise Exception(
-            "All inputted sequences are less than specified length limit.")
+            'All inputted sequences are less than specified length limit.')
     else:
         df_seq = pd.concat(lst)
     return df_seq
@@ -60,7 +60,7 @@ def transform_data(data, verbose=False):
     elif isinstance(data, pd.DataFrame):
         pass
     else:
-        raise TypeError("Invalid data type!")
+        raise TypeError('Invalid data type!')
     df = set_length_limit(data, verbose=verbose)
     df_features = features_as_df(df)
     features, _ = encode_data(df)
@@ -86,6 +86,6 @@ def predict_protein(data, infile_model=None):
     predictions = model.predict(features)
     df_pred = pd.DataFrame(
         predictions, columns=['prob_disordered', 'prob_ordered']
-        )
+    )
     df_pred = df_features.join(df_pred)
     return df_pred

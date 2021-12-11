@@ -19,13 +19,13 @@ def read_data(infile):
     Returns:
         np.ndarray: numpy arrays for features and labels
     """
-    print(f"Reading data from {infile}")
+    print(f'Reading data from {infile}')
     with open(infile, 'rb') as f_read:
         obj = pickle.load(f_read)
-    array_ordered = obj["array_ordered"]
-    labels_ordered = obj["labels_ordered"]
-    array_disordered = obj["array_disordered"]
-    labels_disordered = obj["labels_disordered"]
+    array_ordered = obj['array_ordered']
+    labels_ordered = obj['labels_ordered']
+    array_disordered = obj['array_disordered']
+    labels_disordered = obj['labels_disordered']
     return array_ordered, labels_ordered, array_disordered, labels_disordered
 
 
@@ -40,7 +40,7 @@ def load_data(infile):
     Returns:
         np.ndarray: features and labels for training and testing.
     """
-    print(f"Loading data from {infile}")
+    print(f'Loading data from {infile}')
     array_ordered, labels_ordered, array_disordered, labels_disordered = \
         read_data(infile)
     features, labels = combine_ordered_disordered(
@@ -138,7 +138,7 @@ def fit_model(X_train, X_test, y_train, y_test):
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
                   loss=tf.keras.losses.CategoricalCrossentropy(),
                   metrics=[tf.keras.metrics.CategoricalAccuracy(),
-                  tf.keras.metrics.AUC()])
+                           tf.keras.metrics.AUC()])
     sample_weight = np.ones(shape=(len(y_train),))
     # Give more weights to rarely-seen classes (disordered).
     sample_weight[y_train == 0] = 2.0
