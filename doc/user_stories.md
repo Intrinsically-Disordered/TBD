@@ -23,7 +23,7 @@ ML: For each valid input sequence, it first tests to make sure the input sequenc
     how much of the sequence is intrinsically disordered.
 
 ### Functional diagram:
-![alt text](https://github.com/Intrinsically-Disordered/main-project/blob/main/doc/chart.jpg?raw=True)
+![alt text](https://github.com/Intrinsically-Disordered/main-project/blob/main/doc/images/chart.jpg?raw=True)
 
 
 ## Technician user story
