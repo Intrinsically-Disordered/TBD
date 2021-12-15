@@ -6,7 +6,7 @@ The <code> rcsb_pdb_sequence*.csv</code> files are drawn from the <a href="https
  
 ## Disordered protein structures
 
-The <code> disordered_sequences.csv</code> file contains a list of sequences from the <a href="https://disprot.org">DisProt</a> database. This database contains a curated list of intrinsically disordered proteins collected from the literature. Duplicate sequences are removed during the preprocessing stage. Accessed November 9, 2021.
+The <code> disordered_sequences.csv</code> file contains a list of sequences from the <a href="https://disprot.org">DisProt</a> database. This database contains a curated list of intrinsically disordered proteins collected from the literature. All proteins in the database (from all organisms) were included in this data set. Duplicate sequences are removed during the preprocessing stage. Accessed November 9, 2021.
 
 
 
