@@ -3,7 +3,7 @@ __all__ = [
     '__email__', '__license__', '__copyright__',
 ]
 
-__title__ = 'TBD'
+__title__ = 'TauBD'
 __summary__ = 'TBD: Tau Be Damned.'
 __uri__ = 'https://github.com/Intrinsically-Disordered/TBD'
 
