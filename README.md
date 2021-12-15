@@ -1,3 +1,9 @@
+[![Build Status](https://app.travis-ci.com/jiaweih/TBD.svg?branch=main)](https://app.travis-ci.com/jiaweih/TBD)
+[![Coverage Status](https://coveralls.io/repos/github/jiaweih/TBD/badge.svg)](https://coveralls.io/github/jiaweih/TBD)
+[![PyPI version](https://badge.fury.io/py/TauBD.svg)](https://badge.fury.io/py/TauBD)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 # Project TBD [Tau Be Damned]
 
 The project TBD [Tau Be Damned] aims to use the amino acid sequence of a protein to identify whether it is disordered.
