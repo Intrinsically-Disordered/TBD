@@ -44,4 +44,4 @@ ML: Runs tests on the code to make sure it is operable.
 
 Technician: Tells model to train on the dataset.
 
-ML: Creates a new network which can be saved for future use.
+ML: Access dataset stored on GitHub. Creates a new network which can be saved for future use.
