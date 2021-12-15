@@ -2,19 +2,17 @@
 
 Vicky is a researcher interested in intrinsically disordered proteins. She wants this software 
 to tell her if the protein she is working with is disordered. She is familiar with protein 
-research and is interested in a simple command line interface that would require sequence input and produce 
+research and is interested in a simple interface, such as through the command line or a python script, that would require sequence input and produce 
 a clear indication of whether the sequence is predicted to be disordered or not.
 
 
 ## Software Use Case: 
 
-User: Goes to website with user interface 
+User: Downloads software package from GitHub. Follows instructions for installation and accesses predict module in Python script. 
 
-ML: Display "input protein sequence or file containing multiple sequences" with a box for a 
-single typed sequence or a button for uploading fasta files
+ML: Documentation indicates how to use the script and the formatting for entering a sequence
 
-User: Inputs protein sequence into a box or clicks on a button and uploads protein sequence file 
-from computer
+User: Inputs protein sequence(s) from prior analysis into a Python script
 
 ML: For each valid input sequence, it first tests to make sure the input sequence is valid.
     If a protein sequence is invalid, displays the input sequence and a message reading "Invalid
@@ -38,7 +36,7 @@ Technician: Has idea about better machine learning algorithm for prediction task
 
 ML: Has clearly documented code describing where the existing network structure is.
 
-Technician: Edits the code.
+Technician: Edits the code using background knowledge in reading and writing with TensorFlow.
 
 ML: Runs tests on the code to make sure it is operable.
 
