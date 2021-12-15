@@ -31,7 +31,11 @@ The detailed list of dependencies can be found in the [environment.yml](environm
 
 ## Installation
 
-The package TBD can be installed with the following steps:
+The package `TBD` can be installed using the following command:
+
+<code>pip install TauBD </code>
+
+Alternatively, you can also install it using the GitHub repository in the following steps:
 
 1. Download the repository: <code>git clone https://github.com/Intrinsically-Disordered/TBD.git</code>
 2. Go to the root directory:  <code>cd TBD</code>
