@@ -31,7 +31,11 @@ The detailed list of dependencies can be found in the [environment.yml](environm
 
 ## Installation
 
-The package TBD can be installed with the following steps:
+The package `TBD` can be installed using the following command:
+
+<code>pip install TauBD </code>
+
+Alternatively, you can also install it using the GitHub repository in the following steps:
 
 1. Download the repository: <code>git clone https://github.com/Intrinsically-Disordered/TBD.git</code>
 2. Go to the root directory:  <code>cd TBD</code>
@@ -48,15 +52,15 @@ An example to predict with the pretrained model can be found here: [example note
 
 ## Use Cases
 
-This project aims to be of use to the general public with interest in learning about classifying proteins, scientists determining if the protein they are working with or designed is disordered, and by those with experience in machine learning. 
- 
+This project aims to be of use to the general public with interest in learning about classifying proteins, scientists determining if the protein they are working with or designed is disordered, and by those with experience in machine learning.
+
 ![Use cases graphic](doc/images/use_cases.png)
 
 ## Modules Overview
 
 * __preprocessing.py__         :  Functions related to data cleaning and data processing to be ready for modeling.
 * __model.py__        :  Functions related to modeling of convolutional neural network (CNN).
-* __predict.py__      :  Functions related to predicting whether protein sequences are ordered or disordered using trainedmodel.
+* __predict.py__      :  Functions related to predicting whether protein sequences are ordered or disordered using trained model.
 * __evaluate.py__   :  Functions related to evaluting the trained model.
 * __utils.py__   :  Utility functions that can be used by other modules.
 
@@ -64,16 +68,16 @@ This project aims to be of use to the general public with interest in learning a
 ## Community Guidelines
 
  We welcome the members of open-source community to extend the functionalities of TBD, submit feature requests and report bugs.
- 
+
  ### Feature Request:
  If you would like to suggest a feature or start a discussion on possible extension of TBD, please feel free to <a href="https://github.com/Intrinsically-Disordered/TBD/issues/new">raise an issue</a>.
- 
+
  ### Bug Report:
  If you would like to report a bug, please follow <a href="https://github.com/Intrinsically-Disordered/TBD/issues/new">this link</a>.
- 
+
  ### Contributions:
  If you would to contribute to TBD, you can fork the repository, add your contribution and generate a pull request. The complete guide to make contributions can be found at this <a href="https://github.com/Intrinsically-Disordered/TBD/blob/main/CONTRIBUTIONS.md">link</a>
- 
+
  ## Acknowledgements
 
 This software has been created for CSE 583 under the guidance of Professor David Beck and Anant Mittal from the University of Washington. We thank them for their technical expertise and oversight in helping to make this project a reality.

@@ -47,6 +47,11 @@ dependencies:
   - intel-openmp=2020.2
   - joblib=0.17.0
   - jpeg=9d
+  - jupyter=1.0.0
+  - jupyter_client=6.1.7
+  - jupyter_console=6.2.0
+  - jupyter_core=4.6.3
+  - jupyterlab_pygments=0.1.2
   - keras-preprocessing=1.1.2
   - krb5=1.19.2
   - ld_impl_linux-64=2.36.1
@@ -129,4 +134,3 @@ dependencies:
   - zipp=3.3.1
   - zlib=1.2.11
 prefix: /ihme/code/forecasting/env/TBD
-
