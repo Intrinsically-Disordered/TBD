@@ -60,7 +60,7 @@ This project aims to be of use to the general public with interest in learning a
 
 * __preprocessing.py__         :  Functions related to data cleaning and data processing to be ready for modeling.
 * __model.py__        :  Functions related to modeling of convolutional neural network (CNN).
-* __predict.py__      :  Functions related to predicting whether protein sequences are ordered or disordered using trainedmodel.
+* __predict.py__      :  Functions related to predicting whether protein sequences are ordered or disordered using trained model.
 * __evaluate.py__   :  Functions related to evaluting the trained model.
 * __utils.py__   :  Utility functions that can be used by other modules.
 
