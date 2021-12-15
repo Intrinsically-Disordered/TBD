@@ -1,4 +1,12 @@
-"""Functions related to the model prediction."""
+"""Functions related to the model prediction.
+
+Protein sequences have different lengths. In order to process them
+for convolutional neural network modeling, fixed-length sub-sequences
+need to be extracted. The length fixed is a hyper-parameter than can be
+explored. Here it is set to be 40, so that it's great enough to capture
+some protein features but also small enough to allow most sequences to
+be process, since some sequences are short.
+"""
 import pandas as pd
 from tbd.preprocessing import set_length_limit
 from tbd.utils import generate_sub_sequence, encode_data, load_model
