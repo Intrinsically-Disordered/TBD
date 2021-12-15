@@ -44,7 +44,7 @@ def outcome_disordered():
 
 def test_load_data():
     parent_dir = os.path.abspath(os.path.join(
-        os.path.dirname(__file__), './data'))
+        os.path.dirname(__file__), '../../data'))
     infile = os.path.join(parent_dir, 'protein_processed_data.pkl')
     array_ordered, labels_ordered, array_disordered, labels_disordered = \
         load_data(infile)
