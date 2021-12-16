@@ -11,4 +11,4 @@ Here's the codebase for project TBD.
 * __evaluate.py__   :  Functions related to evaluting the trained model.
 * __utils.py__   :  Utility functions that can be used by other modules.
 * __tests__ : Test suites for each of the modules above.
-* pretrained_model: (Not a script) a pretrained model ready to be used for prediction.
+* pretrained_model: (Not a script) a pre-trained model ready to be used for prediction.
